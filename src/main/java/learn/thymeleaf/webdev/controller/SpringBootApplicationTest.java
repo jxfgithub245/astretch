@@ -1,4 +1,4 @@
-package learn.thymeleaf.form.check.controller;
+package learn.thymeleaf.webdev.controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
