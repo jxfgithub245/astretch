@@ -12,7 +12,7 @@
             var pname = $("#pname").val();
             var password = $("#password").val();
             var page = $('#page').val();
-            alert(password);
+            //alert(password);
             $.ajax({
                 //发送请求的url字符串
                 url:"testJson",
@@ -37,7 +37,7 @@
                         //alert(data.pname);
                         //返回一个List<Map<String,Object>>对象
                         for(var i=0;i<data.length;i++){
-                            alert(data[i].pname);
+                            data[i].pname;
                         }
                     }
                 },
