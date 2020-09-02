@@ -1,4 +1,4 @@
-package learn.thymeleaf.formsubmit.model;
+package learn.thymeleaf.form.submit.model;
 
 public class LoginBean {
     String uname;

@@ -1,6 +1,6 @@
-package learn.thymeleaf.formsubmit.controller;
+package learn.thymeleaf.form.submit.controller;
 
-import learn.thymeleaf.formsubmit.model.LoginBean;
+import learn.thymeleaf.form.submit.model.LoginBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
