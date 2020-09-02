@@ -14,6 +14,8 @@ public class MyUserController {
     private MyUserService myUserService;
     @RequestMapping("/findMybatisAll")
     public List<MyUser> findMybatisAll(){
+        int a = myUserService.findAll().get(0).getAge();
+        System.out.println("年龄是："+a);
         return myUserService.findAll();
     }
 }
