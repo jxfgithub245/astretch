@@ -1,4 +1,4 @@
-package learn.thymeleaf.webdev.controller;
+package learn.thymeleaf.jsonhandler.controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
