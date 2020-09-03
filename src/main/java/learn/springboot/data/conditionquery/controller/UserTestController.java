@@ -21,7 +21,7 @@ public class UserTestController {
     @RequestMapping("/findByUname")
     public String findByUname(String uname, Model model){
         model.addAttribute("title","根据用户名查询一个用户");
-        model.addAttribute("auser",userService.findByUname(uname));
+        model.addAttribute("allUsers",userService.findByUname(uname));
         return "showAuser";
     }
 
@@ -34,15 +34,16 @@ public class UserTestController {
 
     @RequestMapping("/findAll")
     public String findAll(Model model){
+        System.out.println("============"+userService.findAll()+"============");
         model.addAttribute("title","查询所有用户");
-        model.addAttribute("auser",userService.findAll());
+        model.addAttribute("allUsers",userService.findAll());
         return "showAll";
     }
 
     @RequestMapping("/findByUnameLike")
     public String findByUnameLike(String uname,Model model){
         model.addAttribute("title","根据用户名模糊查询所有用户");
-        model.addAttribute("auser",userService.findByUnameLike(uname));
+        model.addAttribute("allUsers",userService.findByUnameLike(uname));
         return "showAll";
     }
 }
