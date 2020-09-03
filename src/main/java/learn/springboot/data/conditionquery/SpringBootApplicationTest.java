@@ -1,9 +1,11 @@
-package learn.springboot.core.readconfig.difficult.propertiysource.controller;
+package learn.springboot.data.conditionquery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Configuration;
 
 @SpringBootApplication
+@Configuration
 public class SpringBootApplicationTest {
 
     public static void main(String[] args) {
