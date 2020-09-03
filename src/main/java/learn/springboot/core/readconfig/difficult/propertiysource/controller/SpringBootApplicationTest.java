@@ -1,10 +1,9 @@
-package learn.springboot.data.mybatis;
+package learn.springboot.core.readconfig.difficult.propertiysource.controller;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-//@MapperScan(basePackages = "learn.springboot.data.mybatis.repository")
+@SpringBootApplication
 public class SpringBootApplicationTest {
 
     public static void main(String[] args) {
