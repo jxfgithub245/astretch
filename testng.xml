@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite1">
+    <!--Groups of groups-->
+    <test name="Regression1">
+        <groups>
+            <define name="functest">
+                <include name="windows"/>
+                <include name="linux"/>
+            </define>
+            <define name="all">
+                <include name="checkintest"/>
+            </define>
+
+            <run>
+                <include name="all"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="learn.testng.groups.Test1"/>
+        </classes>
+    </test>
+
+    <!--Test Groups-->
+    <test name="Test1">
+        <groups>
+            <run>
+                <include name="checkintest"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="learn.testng.groups.Test1"/>
+        </classes>
+    </test>
+
+
+</suite>
