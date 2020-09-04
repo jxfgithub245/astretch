@@ -67,39 +67,96 @@ public class SuiteAssembly {
     * 测试目录集构建集合
     * # {${test.field}:{${test.framework}:[${test.project}]}}
     * */
-    public Map<String,Map<String,List<String>>> constructContentAssembly(){
+    /*
+    * public Map<String,Map<String,List<String>>> constructFieldFrameworksProjectsMapByField(String testFieldType){
+        String testField = "";
         SuiteAssembly sa = new SuiteAssembly();
         Map<String,Map<String,List<String>>> fieldFrameworksProjectsMap = new HashMap<>();
         Map<String,List<String>> frameworksProjectsMap = new HashMap<>();
-        String fields = "test.fields";
-        String frameworks = "test.api.frameworks";
-        String projects = "test.api.projects";
-        String testFields = sa.getSuiteAssmblyPropertiesValue(fields);
+        if(testFieldType.contains("api")){
+            testField = "api";
+        }else if(testFieldType.contains("mobile")){
+            testField = "mobile";
+        }
+        else{
+        }
+        String frameworks = "test."+testField+".frameworks";
+        String projects = "test."+testField+".projects";
+
         String testFrameworks = sa.getSuiteAssmblyPropertiesValue(frameworks);
         String testProjects = sa.getSuiteAssmblyPropertiesValue(projects);
-        String[] testFieldList = testFields.split(",");
         String[] testFrameworkList = testFrameworks.split(",");
         String[] testProjectList = testProjects.split(",");
         List<String> projectsList = new ArrayList<>(Arrays.asList(testProjectList));
         for (String testFramework : testFrameworkList) {
             frameworksProjectsMap.put(testFramework, projectsList);
         }
-
-        for (String testField : testFieldList) {
-            fieldFrameworksProjectsMap.put(testField, frameworksProjectsMap);
-        }
+        fieldFrameworksProjectsMap.put(testField, frameworksProjectsMap);
 
         return fieldFrameworksProjectsMap;
     }
+    * */
+    public Map<String,Map<String,List<String>>> constructFieldFrameworksProjectsMapByField(String testFieldType){
+        String testField = "";
+        SuiteAssembly sa = new SuiteAssembly();
+        Map<String,Map<String,List<String>>> fieldFrameworksProjectsMap = new HashMap<>();
+        Map<String,List<String>> frameworksProjectsMap = new HashMap<>();
+        if(testFieldType.contains("api")){
+            testField = "api";
+        }else if(testFieldType.contains("mobile")){
+            testField = "mobile";
+        }
+        else{
+        }
+        String frameworks = "test."+testField+".frameworks";
+        String projects = "test."+testField+".projects";
+
+        String testFrameworks = sa.getSuiteAssmblyPropertiesValue(frameworks);
+        String testProjects = sa.getSuiteAssmblyPropertiesValue(projects);
+        String[] testFrameworkList = testFrameworks.split(",");
+        String[] testProjectList = testProjects.split(",");
+        List<String> projectsList = new ArrayList<>(Arrays.asList(testProjectList));
+        for (String testFramework : testFrameworkList) {
+            frameworksProjectsMap.put(testFramework, projectsList);
+        }
+        fieldFrameworksProjectsMap.put(testField, frameworksProjectsMap);
+
+        return fieldFrameworksProjectsMap;
+    }
+
+    public Map<String,Map<String,List<String>>> constructFieldFrameworksProjectsMap(){
+        SuiteAssembly sa = new SuiteAssembly();
+        Map<String,Map<String,List<String>>> fieldFrameworksProjectsMap = new HashMap<>();
+        String fields = "test.fields";
+        String testFields = sa.getSuiteAssmblyPropertiesValue(fields);
+        String[] testFieldList = testFields.split(",");
+        for (String testField : testFieldList) {
+            Map<String,List<String>> frameworksProjectsMap = new HashMap<>();
+            String frameworks = "test."+testField+".frameworks";
+            String projects = "test."+testField+".projects";
+            String testFrameworks = sa.getSuiteAssmblyPropertiesValue(frameworks);
+            String testProjects = sa.getSuiteAssmblyPropertiesValue(projects);
+            String[] testFrameworkList = testFrameworks.split(",");
+            String[] testProjectList = testProjects.split(",");
+            List<String> projectsList = new ArrayList<>(Arrays.asList(testProjectList));
+            for (String testFramework : testFrameworkList) {
+                frameworksProjectsMap.put(testFramework, projectsList);
+                System.out.println(testField);
+                System.out.println(frameworksProjectsMap);
+            }
+            fieldFrameworksProjectsMap.put(testField,frameworksProjectsMap);
+        }
+        System.out.println(fieldFrameworksProjectsMap);
+        return fieldFrameworksProjectsMap;
+    }
+
 
     /*
     *创建测试框架目录集
      */
     public void createSuiteAssembly(){
-        //createSuiteAssemblyBasicMethod(String field,String mainFile,String projectFile)
         SuiteAssembly sa = new SuiteAssembly();
-        Map<String,Map<String,List<String>>> fieldFrameworksProjectsMap = sa.constructContentAssembly();
-        System.out.println(fieldFrameworksProjectsMap);
+        Map<String,Map<String,List<String>>> fieldFrameworksProjectsMap = sa.constructFieldFrameworksProjectsMap();
         for(Map.Entry<String,Map<String,List<String>>> fieldFrameworksProjects : fieldFrameworksProjectsMap.entrySet()){
             String field = fieldFrameworksProjects.getKey();
             Map<String,List<String>> frameworksProjectsValue = fieldFrameworksProjects.getValue();
@@ -107,12 +164,12 @@ public class SuiteAssembly {
                 String framework = frameworksProjects.getKey();
                 List<String> projectsValue = frameworksProjects.getValue();
                 for (String project : projectsValue) {
-                    System.out.println(field+"---"+framework+"---"+project);
                     createSuiteAssemblyBasicMethod(field,framework,project);
                 }
             }
         }
     }
+
 
     public static void main(String args[]){
         SuiteAssembly sa = new SuiteAssembly();
