@@ -184,6 +184,11 @@
             <artifactId>hibernate-core</artifactId>
             <version>6.0.0.Alpha6</version>
         </dependency>
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.4</version>
+        </dependency>
     </dependencies>
 
 </project>
