@@ -1,4 +1,4 @@
-package com.runoob.test;
+package learn.database.mysql;
 
 import java.sql.*;
 
