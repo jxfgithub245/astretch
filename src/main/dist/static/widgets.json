@@ -1,0 +1,7 @@
+{"mywidget" : [ {
+"sounds" : [ "Oink!" ],
+"name" : "hungryCat"
+}, {
+"sounds" : [ "Moo!" ],
+"name" : "bigDog"
+} ]}
