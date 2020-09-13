@@ -6,8 +6,8 @@ import org.testng.annotations.Test;
 import java.lang.reflect.Method;
 import java.util.Iterator;
 
-public class IteratorObject {
-    @DataProvider(name = "dp",parallel = true)
+public class PringMethodName {
+    @DataProvider(name = "dp",parallel = false)
     public Object[][] createData(Method m) {
         System.out.println(m.getName());  // print test method name
         return new Object[][] { new Object[] { "Cedric" }};

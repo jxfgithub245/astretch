@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Suite1">
     <!--Groups of groups-->
-    <test name="Regression1">
+    <test name="MethodGroupTest">
         <groups>
-            <define name="functest">
-                <include name="windows"/>
-                <include name="linux"/>
-            </define>
-            <define name="all">
-                <include name="checkintest"/>
-            </define>
-
             <run>
-                <include name="all"/>
+                <include name="windows.*"/>
             </run>
         </groups>
+
         <classes>
-            <class name="learn.testng.groups.Test1"/>
+            <class name="learn.testng.groups.MethodGroupTest"/>
         </classes>
     </test>
 
@@ -28,7 +21,7 @@
             </run>
         </groups>
         <classes>
-            <class name="learn.testng.groups.Test1"/>
+            <class name="learn.testng.groups.GroupTest"/>
         </classes>
     </test>
 
