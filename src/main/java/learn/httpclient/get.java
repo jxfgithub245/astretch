@@ -1,6 +1,7 @@
 package learn.httpclient;
 
 import org.apache.http.HttpEntity;
+import org.apache.http.HttpHeaders;
 import org.apache.http.ParseException;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -23,7 +24,6 @@ public class get {
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
         // 创建Get请求
         HttpGet httpGet = new HttpGet("http://localhost:8000/astretch/testFrame/createTestFrameMethod");
-
         // 响应模型
         CloseableHttpResponse response = null;
         try {
